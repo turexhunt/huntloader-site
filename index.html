@@ -7,31 +7,45 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="bg-orbs">
+    <!-- Фон -->
+    <div class="bg-container">
+        <div class="bg-grid"></div>
         <div class="orb orb1"></div>
         <div class="orb orb2"></div>
         <div class="orb orb3"></div>
+        <div class="orb orb4"></div>
+        <canvas id="particles"></canvas>
     </div>
 
-    <header>
+    <!-- Шапка -->
+    <header id="header">
         <div class="container">
             <div class="logo">
-                <span class="logo-icon">TH</span>
-                HuntLoader
+                <div class="logo-icon">
+                    <span>TH</span>
+                    <div class="logo-glow"></div>
+                </div>
+                <span class="logo-text">HuntLoader</span>
             </div>
             <nav>
-                <a href="#features">Фичи</a>
-                <a href="#download">Скачать</a>
-                <a href="https://discord.gg/UTe3vvSrq4" target="_blank" class="nav-discord">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.033.055a19.9 19.9 0 0 0 5.993 3.03.077.077 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
-                    </svg>
+                <a href="#features" class="nav-link">Фичи</a>
+                <a href="#download" class="nav-link">Скачать</a>
+                <a href="#community" class="nav-link">Сообщество</a>
+                <a href="https://discord.gg/UTe3vvSrq4" target="_blank" class="nav-btn discord-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.033.055a19.9 19.9 0 0 0 5.993 3.03.077.077 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
                     Discord
                 </a>
+                <a href="https://t.me/Thuntproject" target="_blank" class="nav-btn tg-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                    Telegram
+                </a>
             </nav>
+            <button class="burger" id="burger">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </header>
 
@@ -39,40 +53,97 @@
         <!-- HERO -->
         <section class="hero">
             <div class="container">
-                <div class="hero-badge">✦ Minecraft Launcher</div>
-                <h1>Играй на своих<br><span class="gradient-text">условиях</span></h1>
-                <p>HuntLoader — лаунчер нового поколения. Профили, моды, аккаунты — всё в одном месте.</p>
-                <div class="cta-buttons">
-                    <a href="#download" class="btn btn-primary">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7 7-7z"/>
-                        </svg>
-                        Скачать бесплатно
-                    </a>
-                    <a href="https://discord.gg/UTe3vvSrq4" target="_blank" class="btn btn-secondary">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.033.055a19.9 19.9 0 0 0 5.993 3.03.077.077 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
-                        </svg>
-                        Discord сервер
-                    </a>
+                <div class="hero-content">
+                    <div class="hero-badge animate-in">
+                        <span class="badge-dot"></span>
+                        Версия 1.0.0 — Доступна
+                    </div>
+                    <h1 class="hero-title animate-in delay-1">
+                        Играй на своих<br>
+                        <span class="gradient-text">условиях</span>
+                    </h1>
+                    <p class="hero-desc animate-in delay-2">
+                        HuntLoader — лаунчер нового поколения для Minecraft.<br>
+                        Профили, моды с Modrinth, аккаунты — всё в одном месте.
+                    </p>
+                    <div class="hero-btns animate-in delay-3">
+                        <a href="https://discord.gg/UTe3vvSrq4" target="_blank" class="btn btn-primary">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7 7-7z"/></svg>
+                            Скачать бесплатно
+                        </a>
+                        <a href="https://discord.gg/UTe3vvSrq4" target="_blank" class="btn btn-ghost">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.033.055a19.9 19.9 0 0 0 5.993 3.03.077.077 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+                            Discord сервер
+                        </a>
+                    </div>
+
+                    <!-- Статы -->
+                    <div class="hero-stats animate-in delay-4">
+                        <div class="stat-item">
+                            <div class="stat-value gradient-text">Free</div>
+                            <div class="stat-label">Навсегда</div>
+                        </div>
+                        <div class="stat-sep"></div>
+                        <div class="stat-item">
+                            <div class="stat-value gradient-text">1.21.4</div>
+                            <div class="stat-label">Последняя MC</div>
+                        </div>
+                        <div class="stat-sep"></div>
+                        <div class="stat-item">
+                            <div class="stat-value gradient-text">Fabric</div>
+                            <div class="stat-label">Поддержка</div>
+                        </div>
+                        <div class="stat-sep"></div>
+                        <div class="stat-item">
+                            <div class="stat-value gradient-text">∞</div>
+                            <div class="stat-label">Профилей</div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Статистика -->
-                <div class="stats">
-                    <div class="stat">
-                        <span class="stat-num">1.0.0</span>
-                        <span class="stat-label">Версия</span>
+                <!-- Превью лаунчера -->
+                <div class="hero-preview animate-in delay-3">
+                    <div class="preview-window">
+                        <div class="preview-titlebar">
+                            <div class="preview-dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <span class="preview-title">Hunt Loader</span>
+                        </div>
+                        <div class="preview-sidebar">
+                            <div class="preview-logo">TH</div>
+                            <div class="preview-nav-items">
+                                <div class="preview-nav-item active">🏠</div>
+                                <div class="preview-nav-item">📁</div>
+                                <div class="preview-nav-item">📦</div>
+                                <div class="preview-nav-item">👤</div>
+                            </div>
+                        </div>
+                        <div class="preview-content">
+                            <div class="preview-header">
+                                <div class="preview-title-text">Главная</div>
+                                <div class="preview-version-badge">1.21.4</div>
+                            </div>
+                            <div class="preview-profile-card">
+                                <div class="preview-profile-avatar">T</div>
+                                <div>
+                                    <div class="preview-profile-name">TurexHunt</div>
+                                    <div class="preview-profile-sub">Активный профиль</div>
+                                </div>
+                            </div>
+                            <div class="preview-play-btn">
+                                <span>▶ ИГРАТЬ</span>
+                            </div>
+                            <div class="preview-bars">
+                                <div class="preview-bar" style="width:80%"></div>
+                                <div class="preview-bar" style="width:60%"></div>
+                                <div class="preview-bar" style="width:40%"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat">
-                        <span class="stat-num">Free</span>
-                        <span class="stat-label">Навсегда</span>
-                    </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat">
-                        <span class="stat-num">1.21.4</span>
-                        <span class="stat-label">Последняя MC</span>
-                    </div>
+                    <div class="preview-glow"></div>
                 </div>
             </div>
         </section>
@@ -80,42 +151,97 @@
         <!-- ФИЧИ -->
         <section id="features" class="features">
             <div class="container">
-                <div class="section-header">
-                    <div class="section-badge">Возможности</div>
-                    <h2>Всё что тебе нужно</h2>
-                    <p>Мощный функционал в красивой оболочке</p>
-                </div>
+                <div class="section-label">Возможности</div>
+                <h2 class="section-title">Всё что тебе нужно</h2>
+                <p class="section-desc">Мощный функционал в красивой оболочке</p>
 
                 <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon purple">📦</div>
+                    <div class="feature-card reveal" data-delay="0">
+                        <div class="feature-card-glow"></div>
+                        <div class="feature-icon-wrap purple">
+                            <span>📦</span>
+                        </div>
                         <h3>Профили</h3>
-                        <p>Создавай неограниченное количество профилей для разных версий и модпаков.</p>
+                        <p>Создавай неограниченное количество профилей для разных версий и модпаков. Каждый профиль — отдельная среда.</p>
+                        <div class="feature-arrow">→</div>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon green">🌿</div>
+                    <div class="feature-card reveal" data-delay="100">
+                        <div class="feature-card-glow green"></div>
+                        <div class="feature-icon-wrap green">
+                            <span>🌿</span>
+                        </div>
                         <h3>Modrinth</h3>
-                        <p>Ищи и устанавливай моды прямо из лаунчера без лишних сайтов и ручного копирования.</p>
+                        <p>Ищи и устанавливай моды прямо из лаунчера. Поддержка Fabric, Forge, Quilt и NeoForge.</p>
+                        <div class="feature-arrow">→</div>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon blue">👥</div>
+                    <div class="feature-card reveal" data-delay="200">
+                        <div class="feature-card-glow blue"></div>
+                        <div class="feature-icon-wrap blue">
+                            <span>👥</span>
+                        </div>
                         <h3>Аккаунты</h3>
-                        <p>Поддержка Microsoft и оффлайн аккаунтов. Переключайся в один клик.</p>
+                        <p>Microsoft и оффлайн аккаунты. Переключайся между никами в один клик без перезапуска.</p>
+                        <div class="feature-arrow">→</div>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon pink">☕</div>
-                        <h3>Java</h3>
-                        <p>Автоматическое определение и установка нужной версии Java для каждого профиля.</p>
+                    <div class="feature-card reveal" data-delay="0">
+                        <div class="feature-card-glow pink"></div>
+                        <div class="feature-icon-wrap pink">
+                            <span>☕</span>
+                        </div>
+                        <h3>Java Manager</h3>
+                        <p>Автоматическое определение и установка нужной версии Java. Не нужно ничего настраивать вручную.</p>
+                        <div class="feature-arrow">→</div>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon purple">🎮</div>
+                    <div class="feature-card reveal" data-delay="100">
+                        <div class="feature-card-glow purple"></div>
+                        <div class="feature-icon-wrap purple">
+                            <span>🎮</span>
+                        </div>
                         <h3>Discord RPC</h3>
-                        <p>Показывай друзьям во что играешь через Discord Rich Presence.</p>
+                        <p>Показывай друзьям во что играешь через Discord Rich Presence с версией и никнеймом.</p>
+                        <div class="feature-arrow">→</div>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon blue">🔄</div>
+                    <div class="feature-card reveal" data-delay="200">
+                        <div class="feature-card-glow blue"></div>
+                        <div class="feature-icon-wrap blue">
+                            <span>🔄</span>
+                        </div>
                         <h3>Автообновления</h3>
-                        <p>Лаунчер сам проверяет обновления и уведомляет тебя о новых версиях.</p>
+                        <p>Лаунчер сам проверяет новые версии и уведомляет тебя. Всегда актуальная версия.</p>
+                        <div class="feature-arrow">→</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- КАК ЭТО РАБОТАЕТ -->
+        <section class="howto">
+            <div class="container">
+                <div class="section-label">Просто</div>
+                <h2 class="section-title">Начни за 3 шага</h2>
+                <div class="steps">
+                    <div class="step reveal">
+                        <div class="step-num">01</div>
+                        <div class="step-content">
+                            <h3>Скачай лаунчер</h3>
+                            <p>Бесплатно, без регистрации. Просто скачай и запусти .exe файл.</p>
+                        </div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step reveal" data-delay="150">
+                        <div class="step-num">02</div>
+                        <div class="step-content">
+                            <h3>Создай профиль</h3>
+                            <p>Выбери версию Minecraft и загрузчик модов. Профиль создаётся за секунды.</p>
+                        </div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step reveal" data-delay="300">
+                        <div class="step-num">03</div>
+                        <div class="step-content">
+                            <h3>Играй!</h3>
+                            <p>Нажми кнопку Play — лаунчер сам скачает всё необходимое и запустит игру.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -124,32 +250,42 @@
         <!-- СКАЧАТЬ -->
         <section id="download" class="download">
             <div class="container">
-                <div class="download-card">
+                <div class="download-card reveal">
+                    <div class="download-card-glow"></div>
                     <div class="download-left">
-                        <div class="version-badge">v1.0.0</div>
+                        <div class="version-tag">v1.0.0 — Стабильная</div>
                         <h2>Скачать HuntLoader</h2>
-                        <p>Windows 10/11 · .NET 8 · 64-bit</p>
-                        <div class="download-buttons">
-                            <a href="#" class="btn btn-primary btn-large">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7 7-7z"/>
-                                </svg>
+                        <p>Windows 10/11 · .NET 8 · x64</p>
+                        <div class="download-btns">
+                            <a href="https://discord.gg/UTe3vvSrq4" target="_blank" class="btn btn-primary btn-lg">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7 7-7z"/></svg>
                                 Скачать .exe
                             </a>
                             <a href="https://discord.gg/UTe3vvSrq4" target="_blank" class="btn btn-discord">
                                 Discord
                             </a>
+                            <a href="https://t.me/Thuntproject" target="_blank" class="btn btn-tg">
+                                Telegram
+                            </a>
+                        </div>
+                        <div class="download-note">
+                            ⚡ Ссылка на скачивание в Discord и Telegram канале
                         </div>
                     </div>
                     <div class="download-right">
-                        <div class="changelog">
-                            <div class="changelog-title">Что нового в v1.0.0</div>
-                            <ul>
-                                <li>✦ Первый релиз HuntLoader</li>
-                                <li>✦ Интеграция с Modrinth API</li>
-                                <li>✦ Менеджер профилей и аккаунтов</li>
-                                <li>✦ Discord Rich Presence</li>
-                                <li>✦ Поддержка Fabric и Forge</li>
+                        <div class="changelog-box">
+                            <div class="changelog-head">
+                                <span class="changelog-dot"></span>
+                                Что нового в v1.0.0
+                            </div>
+                            <ul class="changelog-list">
+                                <li><span class="cl-icon">✦</span> Первый релиз HuntLoader</li>
+                                <li><span class="cl-icon">✦</span> Интеграция с Modrinth API</li>
+                                <li><span class="cl-icon">✦</span> Менеджер профилей</li>
+                                <li><span class="cl-icon">✦</span> Microsoft и оффлайн аккаунты</li>
+                                <li><span class="cl-icon">✦</span> Discord Rich Presence</li>
+                                <li><span class="cl-icon">✦</span> Поддержка Fabric и Forge</li>
+                                <li><span class="cl-icon">✦</span> Java автоопределение</li>
                             </ul>
                         </div>
                     </div>
@@ -157,17 +293,29 @@
             </div>
         </section>
 
-        <!-- DISCORD -->
-        <section class="discord-section">
+        <!-- СООБЩЕСТВО -->
+        <section id="community" class="community">
             <div class="container">
-                <div class="discord-card">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="#5865F2">
-                        <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.033.055a19.9 19.9 0 0 0 5.993 3.03.077.077 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/>
-                    </svg>
-                    <h2>Присоединяйся к сообществу</h2>
-                    <p>Помощь, обновления, обсуждения — всё в нашем Discord сервере</p>
-                    <a href="https://discord.gg/UTe3vvSrq4" target="_blank" class="btn btn-discord btn-large">
-                        Открыть Discord
+                <div class="section-label">Сообщество</div>
+                <h2 class="section-title">Присоединяйся</h2>
+                <div class="community-grid">
+                    <a href="https://discord.gg/UTe3vvSrq4" target="_blank" class="community-card discord-card reveal">
+                        <div class="community-card-glow discord-glow"></div>
+                        <div class="community-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="#5865F2"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.033.055a19.9 19.9 0 0 0 5.993 3.03.077.077 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+                        </div>
+                        <h3>Discord сервер</h3>
+                        <p>Помощь, обновления, общение с командой и другими игроками</p>
+                        <div class="community-link">Открыть →</div>
+                    </a>
+                    <a href="https://t.me/Thuntproject" target="_blank" class="community-card tg-card reveal" data-delay="150">
+                        <div class="community-card-glow tg-glow"></div>
+                        <div class="community-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="#26A5E4"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                        </div>
+                        <h3>Telegram канал</h3>
+                        <p>Новости, анонсы обновлений и эксклюзивный контент от команды</p>
+                        <div class="community-link">Открыть →</div>
                     </a>
                 </div>
             </div>
@@ -176,15 +324,23 @@
 
     <footer>
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-top">
                 <div class="logo">
-                    <span class="logo-icon">TH</span>
-                    HuntLoader
+                    <div class="logo-icon small">
+                        <span>TH</span>
+                    </div>
+                    <span class="logo-text">HuntLoader</span>
                 </div>
-                <p>© 2024 HuntTeam. Не является официальным продуктом Mojang.</p>
                 <div class="footer-links">
                     <a href="https://discord.gg/UTe3vvSrq4" target="_blank">Discord</a>
+                    <a href="https://t.me/Thuntproject" target="_blank">Telegram</a>
+                    <a href="#features">Фичи</a>
+                    <a href="#download">Скачать</a>
                 </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 HuntTeam. Не является официальным продуктом Mojang Studios.</p>
+                <p class="footer-version">v1.0.0</p>
             </div>
         </div>
     </footer>
